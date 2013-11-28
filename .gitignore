@@ -1,0 +1,5 @@
+target/
+.idea/
+*.iml
+.ensime*
+src/main/resources/*.properties
