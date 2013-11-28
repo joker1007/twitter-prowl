@@ -13,13 +13,13 @@ import twitter4j.TwitterFactory
 import java.util.Properties
 
 object App {
-  private[this] val properties = new Properties()
+  val properties = new Properties()
   properties.load(getClass.getResourceAsStream("/twitter.properties"))
 
-  val CONSUMER_KEY = properties.getProperty("consumer_key")
-  val CONSUMER_SECRET = properties.getProperty("consumer_secret")
-  val ACCESS_TOKEN = properties.getProperty("access_token")
-  val ACCESS_SECRET = properties.getProperty("access_secret")
+  private[this] val CONSUMER_KEY = properties.getProperty("twitter.consumer_key")
+  private[this] val CONSUMER_SECRET = properties.getProperty("twitter.consumer_secret")
+  private[this] val ACCESS_TOKEN = properties.getProperty("twitter.access_token")
+  private[this] val ACCESS_SECRET = properties.getProperty("twitter.access_secret")
 
   def main(args: Array[String]) {
     connect(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_SECRET)
@@ -34,7 +34,6 @@ object App {
     val auth = new OAuth1(consumerKey, consumerSecret, token, secret)
 
     val client = new ClientBuilder()
-      .name("joker1007-hbc-sample")
       .hosts(Constants.USERSTREAM_HOST)
       .endpoint(endpoint)
       .authentication(auth)
@@ -72,7 +71,7 @@ object App {
             JField("screen_name", JString(screen_name)) <- user
           } {
             if (reply_to.toLong == account.id)
-              println(ReplyReceivedEvent(screen_name, text))
+              ProwlNotifier.notify(ReplyReceivedEvent(screen_name, text))
           }
         }
       }

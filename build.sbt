@@ -11,6 +11,7 @@ libraryDependencies ++= Seq(
   "com.twitter" % "hbc-core" % "1.4.2",
   "com.twitter" % "hbc-twitter4j" % "1.4.2",
   "org.twitter4j" % "twitter4j-core" % "3.0.5",
+  "net.databinder.dispatch" %% "dispatch-core" % "0.11.0",
   "org.slf4j" % "slf4j-api" % "1.6.6",
   "org.slf4j" % "slf4j-simple" % "1.6.6",
   "org.json4s" %% "json4s-native" % "3.2.5"
