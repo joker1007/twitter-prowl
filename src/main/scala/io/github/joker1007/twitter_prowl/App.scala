@@ -12,7 +12,7 @@ import java.util.Properties
 
 object App {
   val properties = new Properties()
-  properties.load(getClass.getResourceAsStream("/twitter.properties"))
+  properties.load(getClass.getResourceAsStream("/twitter-prowl.properties"))
 
   private[this] val CONSUMER_KEY = properties.getProperty("twitter.consumer_key")
   private[this] val CONSUMER_SECRET = properties.getProperty("twitter.consumer_secret")

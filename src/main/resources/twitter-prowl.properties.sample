@@ -1,0 +1,6 @@
+twitter.consumer_key=xxxxxxxxxxxxxxxxxxxx
+twitter.consumer_secret=xxxxxxxxxxxxxxxxxxxx
+twitter.access_token=xxxxxxxxxxxxxxxxxxxx
+twitter.access_secret=xxxxxxxxxxxxxxxxxxxx
+
+prowl.token=xxxxxxxxxxxxxxxxxxxx
