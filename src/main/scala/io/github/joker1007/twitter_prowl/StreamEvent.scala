@@ -1,4 +1,4 @@
-package io.github.joker1007
+package io.github.joker1007.twitter_prowl
 
 abstract class StreamEvent[A] extends Notifiable {
   def target: EventTarget

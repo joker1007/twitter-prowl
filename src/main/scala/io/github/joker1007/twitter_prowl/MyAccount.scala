@@ -1,4 +1,4 @@
-package io.github.joker1007
+package io.github.joker1007.twitter_prowl
 
 import twitter4j.conf.ConfigurationBuilder
 import twitter4j.TwitterFactory

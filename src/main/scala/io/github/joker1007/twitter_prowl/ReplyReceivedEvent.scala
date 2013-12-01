@@ -1,4 +1,4 @@
-package io.github.joker1007
+package io.github.joker1007.twitter_prowl
 
 case class ReplyReceivedEvent(tweet: Tweet) extends Notifiable {
   val event = "reply"

@@ -1,4 +1,4 @@
-package io.github.joker1007
+package io.github.joker1007.twitter_prowl
 
 case class DirectMessageReceivedEvent(directMessage: DirectMessage) extends Notifiable {
   val event = "direct_message"

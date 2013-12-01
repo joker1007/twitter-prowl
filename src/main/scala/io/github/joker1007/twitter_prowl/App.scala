@@ -1,4 +1,4 @@
-package io.github.joker1007
+package io.github.joker1007.twitter_prowl
 
 import java.util.concurrent.{TimeUnit, LinkedBlockingDeque}
 import com.twitter.hbc.core.endpoint.UserstreamEndpoint

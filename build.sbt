@@ -1,4 +1,4 @@
-name := "hosebird-notifier"
+name := "twitter-prowl"
 
 organization := "com.example"
 
@@ -17,5 +17,5 @@ libraryDependencies ++= Seq(
   "org.json4s" %% "json4s-native" % "3.2.5"
 )
 
-initialCommands := "import com.example.hosebirdnotifier._"
+initialCommands := "import io.github.joker1007.twitter_prowl._"
 
