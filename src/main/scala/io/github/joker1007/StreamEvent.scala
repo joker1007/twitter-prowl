@@ -1,21 +1,17 @@
 package io.github.joker1007
 
-abstract class StreamEvent extends Notifiable {
-  def target: String
-  def source: String
-  def targetObject: Option[Target]
+abstract class StreamEvent[A] extends Notifiable {
+  def target: EventTarget
+  def source: EventSource
 }
 
-trait Target {
+trait EventTarget
 
-}
+trait EventSource
 
-case class FollowedEvent(eventName: String, target: String, source: String, targetObject: Option[Target]) extends StreamEvent {
-  def subject: String = "Followed by " + source
-  def description: String = ""
-}
+trait TargetObject
 
-case class FavoritedEvent(eventName: String, target: String, source: String, targetObject: Option[Tweet]) extends StreamEvent {
-  def subject: String = "Favorited by " + source
-  def description: String = targetObject map (_.body) getOrElse("")
+case class FavoritedEvent(event: String, target: User, source: User, targetObject: Tweet) extends StreamEvent {
+  def subject: String = "Favorited by " + source.screenName
+  def description: String = targetObject.text
 }
