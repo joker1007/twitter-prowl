@@ -20,7 +20,7 @@ class MessageParser(myAccount: MyAccount) {
 
     val jDM = transformed \ "direct_message"
     val dmEvent = for {
-      directMessage <- jDM.extractOpt[DirectMessage]
+      directMessage <- jDM.extractOpt[DirectMessage] if directMessage.recipient.id == myAccount.id
     } yield DirectMessageReceivedEvent(directMessage)
     if (!dmEvent.isEmpty)
       return dmEvent
