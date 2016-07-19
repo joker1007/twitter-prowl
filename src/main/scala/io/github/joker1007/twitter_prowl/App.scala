@@ -46,14 +46,15 @@ object App {
     while (true) {
       if (client.isDone) {
         println("client connection is closed")
-      } else {
-        val msg = queue.poll(5, TimeUnit.SECONDS)
-        if (msg != null) {
-          val json = JsonMethods.parse(msg)
-          for (ev <- parser.parse(json)) {
-            println(ev)
-            ProwlNotifier.notify(ev)
-          }
+        client.connect()
+      }
+
+      val msg = queue.poll(5, TimeUnit.SECONDS)
+      if (msg != null) {
+        val json = JsonMethods.parse(msg)
+        for (ev <- parser.parse(json)) {
+          println(ev)
+          ProwlNotifier.notify(ev)
         }
       }
     }
